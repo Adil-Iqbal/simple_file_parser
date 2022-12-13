@@ -101,7 +101,6 @@ def create_metadata_report(query: Query) -> str:
     else:
         data += "\n\nNo matches found."
 
-    print(data)
     return data
 
 
@@ -110,6 +109,7 @@ def create_metadata_file_and_print(query: Query) -> None:
     data = create_metadata_report(query)
     meta_file_path = query.output_dir / "__metadata.txt"
     meta_file_path.write_text(data)
+    print(data)
 
 
 def copy_matching_files_to_output_dir(query: Query) -> None:
