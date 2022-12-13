@@ -105,14 +105,14 @@ def create_metadata_report(query: Query) -> str:
     return data
 
 
-def create_metadata(query: Query) -> None:
+def create_metadata_file_and_print(query: Query) -> None:
     """Save report in output directory."""
     data = create_metadata_report(query)
     meta_file_path = query.output_dir / "__metadata.txt"
     meta_file_path.write_text(data)
 
 
-def copy_results(query: Query) -> None:
+def copy_matching_files_to_output_dir(query: Query) -> None:
     """Copy files that match provided keywords into output directory."""
     for src_path in query.result.matches:
         dst_path = query.output_dir / os.path.basename(str(src_path))
@@ -195,8 +195,8 @@ def create_query() -> Query:
 def main() -> None:
     query = create_query()
     find_files_with_keywords(query)
-    copy_results(query)
-    create_metadata(query)
+    copy_matching_files_to_output_dir(query)
+    create_metadata_file_and_print(query)
 
 
 
