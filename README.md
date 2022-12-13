@@ -102,6 +102,7 @@ printed when the query first ran.
 
 ```
 > cd "C:\\path\\to\\desktop\\simple_file_parser"
+> python main.py "C:\\path\\to\\target\\folder"
 > Enter comma-separated keywords: foo, bar, baz
 
 Target Directory: C:\path\to\target\folder
